@@ -1,0 +1,64 @@
+<!-- add_item.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Add Item</title>
+</head>
+<body>
+    <h1>Add Item</h1>
+    <form method="POST" action="{{ url_for('add_item') }}">
+    <label for="item_name">Item Name:</label>
+    <input type="text" name="item_name" required>
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="quantity" required>
+    <label for="price">Price:</label>
+    <input type="number" step="0.01" name="price" required>
+    <button type="submit">Add Item</button>   
+    </form>
+</body>
+</html>
+
+
+<style>
+    h1{
+   
+        color: blue;
+        text-align: center;
+        padding: 20px;
+        font-size: 30px;
+        width: 100%
+    }
+    
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+</style>

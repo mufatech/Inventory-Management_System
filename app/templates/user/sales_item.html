@@ -1,0 +1,25 @@
+<!-- sell_item.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Sales Item</title>
+</head>
+<ul>
+    {% for item in items %}
+        <li>
+            {{ item.name }} -
+            Price: ${{ item.price }} -
+            Quantity: {{ item.quantity }} in stock -
+            Daily Sales: {{ item.daily_sales }} -
+            Stock Value: ${{ item.stock_value }}
+            <form method="POST" action="{{ url_for('sales_item', item_id=item.id) }}">
+                <button type="submit">Sold</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+

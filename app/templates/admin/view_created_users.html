@@ -1,0 +1,34 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+    <h2 class="m-3">Created Users</h2>
+    <table class="table table-success table-striped mt-4">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Password</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in added_users %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.password }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="pagination justify-content-center">
+        <span class="badge badge-light">
+            Page {{ created_users.page }} of {{ created_users.pages }}
+        </span>
+        {% if created_users.has_prev %}
+            <a href="{{ url_for('view_created_users', page=created_users.prev_num) }}" class="btn btn-sm btn-primary">Previous</a>
+        {% endif %}
+        {% if created_users.has_next %}
+            <a href="{{ url_for('view_created_users', page=created_users.next_num) }}" class="btn btn-sm btn-primary">Next</a>
+        {% endif %}
+    </div>
+
+{% endblock %}

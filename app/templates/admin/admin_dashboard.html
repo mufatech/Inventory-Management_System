@@ -1,0 +1,103 @@
+{% extends "admin/base.html" %}
+
+    {% block content %}
+
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Dashboard</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+        <div class="row">
+            <div class="col-xl-4 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body"> Add Item</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="{{ url_for('add_item') }}"></a>
+                        
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+                <div class="card bg-secondary text-white mb-4">
+                    <div class="card-body">Create User</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="{{ url_for('create_user') }}"></a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+                <div class="card bg-success text-white mb-4">
+                    <div class="card-body">View Added Items</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="{{ url_for('added_item') }}"></a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">View Created Users</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="{{ url_for('created_users') }}"></a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6">
+                <div class="card bg-secondary text-white mb-4">
+                    <div class="card-body">View Sales Items</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="{{ url_for('sales_item') }}"></a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div class="card bg-secondary text-white mb-4">
+                        <div class="card-body">Items Stock Value</div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="{{ url_for('stock_value') }}"></a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+            </div>
+
+
+        </div>
+
+        <h1 class="mt-4">General Analytics</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">General Analytics</li>
+        </ol>
+        <div class="row">
+            <!-- Card 1: Total Number of Added Items -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Number of Added Items</h5>
+                        <h2 class="badge bg-primary rounded-pill custom-font-size">{{ total_added_items }}</h2>
+                    </div>
+                     <!-- Card 2: Total Number of Created Users -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Number of Created Users</h5>
+                        <h2 class="badge bg-primary rounded-pill custom-font-size">{{ total_create_users }}</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3: Total Number of Sales -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Number of Sales Items</h5>
+                        <h2 class="badge bg-primary rounded-pill custom-font-size">{{ total_sales_item }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+         {% endblock %}
+            

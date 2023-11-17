@@ -1,0 +1,36 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+    <h2 class="m-3">Added Items</h2>
+    <table class="table table-success table-striped mt-4">
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in added_items %}
+            <tr>
+                <td>{{ item.item_name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="pagination justify-content-center">
+        <span class="badge badge-light">
+            Page {{ added_items.page }} of {{ added_items.pages }}
+        </span>
+        {% if added_items.has_prev %}
+            <a href="{{ url_for('view_added_items', page=added_items.prev_num) }}" class="btn btn-sm btn-primary">Previous</a>
+        {% endif %}
+        {% if added_items.has_next %}
+            <a href="{{ url_for('view_added_items', page=added_items.next_num) }}" class="btn btn-sm btn-primary">Next</a>
+        {% endif %}
+    </div>
+
+{% endblock %}
